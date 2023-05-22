@@ -1,0 +1,194 @@
+Question 1:
+
+
+You have a Laravel application with a form that submits user information using a POST request. Write the code to retrieve the 'name' input field value from the request and store it in a variable called $name.
+
+-------------------- 1 ---------------------------
+:string
+$name = $request->input('name');
+-----------------------------------------------
+
+
+
+
+Question 2:
+
+
+In your Laravel application, you want to retrieve the value of the 'User-Agent' header from the current request. Write the code to accomplish this and store the value in a variable called $userAgent.
+
+---------------------- 2 ---------------------------
+:string
+$userAgent = $request->header('User-Agent');
+----------------------------------------------------
+
+
+
+
+Question 3:
+
+
+You are building an API endpoint in Laravel that accepts a GET request with a 'page' query parameter. Write the code to retrieve the value of the 'page' parameter from the current request and store it in a variable called $page. If the parameter is not present, set $page to null.
+
+------------------------- 3 --------------------------
+$page = 
+
+
+If the requested query string value data is not present, the second argument to this method will be returned:
+
+$name = $request->query('name', 'Helen');
+------------------------------------------------------
+
+
+
+
+Question 4:
+
+
+Create a JSON response in Laravel with the following data:
+
+
+
+{
+
+
+    "message": "Success",
+
+
+    "data": {
+
+
+        "name": "John Doe",
+
+
+        "age": 25
+
+
+    }
+
+
+}
+
+
+------------------------- 4 --------------------------------
+:jsonresponse
+$message = "Success";
+$content = array("name"=>"John Doe", "age" => 25);
+$code = 200
+
+return response()->json( $message, $content, $code);
+------------------------------------------------------------
+
+
+
+
+
+Question 5:
+
+
+You are implementing a file upload feature in your Laravel application. Write the code to handle a file upload named 'avatar' in the current request and store the uploaded file in the 'public/uploads' directory. Use the original filename for the uploaded file.
+
+--------------------------------- 5 --------------------------------------
+:bool
+$fileUpload = $request->file('avatar');
+$file->move(public-path('uploads'), $file->getClientOriginalName());
+
+return true;
+--------------------------------------------------------------------------
+
+
+
+
+
+Question 6:
+
+
+Retrieve the value of the 'remember_token' cookie from the current request in Laravel and store it in a variable called $rememberToken. If the cookie is not present, set $rememberToken to null.
+
+
+------------------------------ 6 --------------------------------------
+
+
+function rememberCookie(Request $request)
+    {
+        $rememberToken = $request->cookie('remember_token', null);
+        return $rememberToken;
+    }
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+
+Question 7:
+
+
+Create a route in Laravel that handles a POST request to the '/submit' URL. Inside the route closure, retrieve the 'email' input parameter from the request and store it in a variable called $email. Return a JSON response with the following data:
+
+
+{
+
+
+    "success": true,
+
+
+    "message": "Form submitted successfully."
+
+
+}
+
+
+--------------------------------- 7 ---------------------------------
+Route::post('/submit', [D]) +
+---------------------------------------------------------------------
+
+
+
+
+Submission Instruction :
+
+
+Please submit your github repository link.
+
+
+
+
+
+
+
+$name = request()->input('name');
+$userAgent = request()->header('User-Agent');
+$page = request()->query('page') ?? null;
+return response()->json([
+    'message' => 'Success',
+    'data' => [
+        'name' => 'John Doe',
+        'age' => 25
+    ]
+]);
+$file = request()->file('avatar');
+$file->move('public/uploads', $file->getClientOriginalName());
+$rememberToken = request()->cookie('remember_token') ?? null;
+Route::post('/submit', function (Request $request) {
+    $email = $request->input('email');
+    return response()->json([
+        'success' => true,
+        'message' => 'Form submitted successfully.'
+    ]);
+});
+
+
+
+
+1   2
+2   3
+3   1   url input()
+4   1
+5   3
+6   1
+7   3
+8   1
+9   3
+10  1
