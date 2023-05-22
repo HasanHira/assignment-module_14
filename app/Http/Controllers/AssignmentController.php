@@ -60,14 +60,17 @@ class AssignmentController extends Controller {
 
     // Assignment-14/ Question 07
     function submit(Request $req){
-        $email = $req->input('email');
-        if($email){
-            return response()->json([
-                'success' => true,
-                'message' => 'Form submitted successfully.'
-            ]);
-        }else{
-            return "Please set your email and try again";
+        $email = $req->input( 'email' );
+        $response = array(
+            "success" => true,
+            "message" => "Form submitted successfully."
+        );
+        if ( $email ) {
+            return response()->json( $response );
+        } else {
+            return "Email should not be empty!";
         }
     }
+
+
 }
